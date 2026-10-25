@@ -72,7 +72,8 @@ clean:
     git clean -dfx -e justfile -e .claude
     rm -rf ~/.cache/roc
 
-# rebase this local justfile branch onto upstream main and push it
+# rebase hot-reload onto upstream main, restack this branch on it, and push this branch to the fork
 rebase:
-    git fetch origin && git rebase origin/main
-    git push --force-with-lease origin local-install
+    git fetch origin
+    git rebase --update-refs origin/main local-install
+    git push --force-with-lease fork local-install
