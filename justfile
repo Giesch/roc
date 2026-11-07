@@ -69,11 +69,11 @@ test: clean
 # clean local build artifacts and the cache
 [linux]
 clean:
-    git clean -dfx -e justfile -e .claude
+    git clean -dfx -e justfile -e .claude -e plans/
     rm -rf ~/.cache/roc
 
-# rebase hot-reload onto upstream main, restack this branch on it, and push this branch to the fork
+# restack local-install onto hot-reload and push this branch to the fork
 rebase:
-    git fetch origin
-    git rebase --update-refs origin/main local-install
+    git fetch fork
+    git rebase hot-reload local-install
     git push --force-with-lease fork local-install
