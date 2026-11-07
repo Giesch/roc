@@ -24,7 +24,7 @@ install-release: clean && finish-install
 # add roc to local bin, update skill, install rust_glue
 [linux]
 finish-install: && install-rust-glue
-    cp ./zig-out/bin/roc ~/.local/bin/
+    install -m 755 ./zig-out/bin/roc ~/.local/bin/roc.new && mv -f ~/.local/bin/roc.new ~/.local/bin/roc
     just sync-roc-coding
 
 # refresh the global roc-coding skill's reference copies
