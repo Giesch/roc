@@ -64,7 +64,8 @@ install-rust-glue:
 # clean build and test
 [linux]
 test: clean
-    zig build test
+    zig build run-test-zig
+    zig build run-test-cli
 
 # clean local build artifacts and the cache
 [linux]
