@@ -1,5 +1,4 @@
 # local-only build helpers
-#   see .git/info/exclude
 
 # list all available just recipes
 _default:
