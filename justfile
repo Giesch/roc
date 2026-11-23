@@ -72,9 +72,9 @@ clean:
     git clean -dfx -e justfile -e .claude -e plans/
     rm -rf ~/.cache/roc
 
-# restack local-install onto the 0.1.0 RC1 release candidate and push this branch to the fork
+# restack local-install onto main and push this branch to the fork
 rebase:
     git fetch fork
-    git fetch origin tag 0.1.0_RC1
-    git rebase 0.1.0_RC1 local-install
+    git fetch origin main
+    git rebase origin/main local-install
     git push --force-with-lease fork local-install
